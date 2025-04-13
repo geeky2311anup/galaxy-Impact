@@ -163,3 +163,14 @@ while True:
         break
 
 wn.mainloop()
+player.lives = 3 # Add player lives
+pen.write("Score: 0  Lives: 3", False, align = "center", font = ("Arial", 24, "normal")) # Display lives
+player.lives -= 1 # Decrease player lives
+pen.clear()
+pen.write("Score: {}  Lives: {}".format(player.score, player.lives), False, align = "center", font = ("Arial", 24, "normal"))
+if player.lives == 0: # Check for game over
+    Game_Over = True
+    break
+player.goto(0,0) # Move player back to center after collision
+for missile in missiles:
+    missile.hideturtle()
